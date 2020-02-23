@@ -34,10 +34,17 @@ class App extends Component {
 		// write
 		inputRanges[inputRangeIndex] = inputRange;
 
-		let sumValues = 0;
-		for (let i = 0; i < inputRanges.length; i++) {
-			sumValues += inputRanges[i].value;
-		}
+		let sumValues = inputRanges
+			.map((o) => o.value)
+			.reduce((a, c) => {
+				return a + c;
+			});
+		// let sumValues = inputRanges.reduce((sum, current) => {
+		// 	return sum + current;
+		// });
+		// for (let i = 0; i < inputRanges.length; i++) {
+		// 	sumValues += inputRanges[i].value;
+		// }
 
 		let valueLeft = 100 - sumValues;
 
